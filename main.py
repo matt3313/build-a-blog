@@ -25,7 +25,7 @@ def blog():
     blog_id = request.args.get('id')
     if (blog_id):
         blog = Blog.query.get(blog_id)
-        return render_template('single-blog.html', title="Blog Entry", blog=blog)
+        return render_template('single-blog.html', title="Build-a-Blog", blog=blog)
 
     blogs = Blog.query.all()
 
@@ -65,18 +65,9 @@ def newpost():
             return render_template('newpost.html', title_error = title_error, text_error = text_error, new_text = new_text)
         
     else:
-        return render_template("newpost.html")
+        return render_template("newpost.html", title = 'Build-a-Blog')
 
 
-'''@app.route("/add_blog", methods = ['POST'])
-def add_blog():
-        
-    new_title = request.form('title')
-    new_text = request.form('text')
-    new_blog = Blog(new_title, new_text)
-    db.session.add(new_blog)
-    db.session.commit()
-    return redirect('/blog')
-'''
+
 if __name__ == '__main__':
     app.run()
