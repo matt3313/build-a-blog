@@ -29,18 +29,17 @@ def blog():
 
     blogs = Blog.query.all()
 
-
     return render_template("blog.html", title = "Build-a-Blog", blogs = blogs)
 
 
 @app.route("/newpost", methods = ['GET', 'POST'])
 def newpost():
 
-    blogs = Blog.query.all()
+    
     if request.method == 'POST':
         
-        new_title = request.form.get('title')
-        new_text = request.form.get('text')
+        new_title = request.form['title']
+        new_text = request.form['text']
         
         title_error = ''
         text_error = ''
@@ -51,8 +50,6 @@ def newpost():
         if len(new_text) < 1:
             text_error = 'Please enter text'
         
-
-
         if not text_error and not title_error:
             new_blog = Blog(new_title, new_text)
             db.session.add(new_blog)
