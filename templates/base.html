@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        li.navigation{
+            display: inline;
+            font-size: 20px;
+            padding: 15px;
+        }
+        li.blog{
+            list-style: none;
+            border-bottom: 1px solid;
+        }
+        h1 {
+            text-align: center;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+    <title>{{title}}</title>
+</head>
+<body>
+    <ul>
+        <li class = 'navigation'><a href="/blog">Main Blog Page</a></li>
+        <li class = 'navigation'><a href="/newpost">Add a Blog Entry</a></li>
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
